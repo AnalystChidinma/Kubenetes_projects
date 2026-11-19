@@ -3,11 +3,8 @@ import os
 import random
 from datetime import datetime, timedelta
 
-import boto3
-
 PRODUCTS = ["laptop", "phone", "headphones", "smartwatch", "tablet"]
 CITIES = ["Lagos", "Abuja", "Ibadan", "Port Harcourt", "Kano"]
-
 
 def generate_orders(num_rows):
     """Build a list of fake order records."""
@@ -24,7 +21,6 @@ def generate_orders(num_rows):
         })
     return orders
 
-
 def write_csv(orders, file_path):
     """Save the records to a CSV file."""
     with open(file_path, "w", newline="") as f:
@@ -32,26 +28,10 @@ def write_csv(orders, file_path):
         writer.writeheader()
         writer.writerows(orders)
 
-def upload_to_s3(file_path, bucket, key):
-    """Upload a local file to an S3 bucket."""
-    s3 = boto3.client("s3")
-    s3.upload_file(file_path, bucket, key)
-
-
 if __name__ == "__main__":
-
     num_rows = int(os.environ.get("NUM_ROWS", "100"))
-    bucket = os.environ["BUCKET_NAME"]
-    prefix = os.environ.get("S3_PREFIX", "orders")
-
     file_path = "/tmp/orders.csv"
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    key = f"{prefix}/orders_{timestamp}.csv"
 
     orders = generate_orders(num_rows)
     write_csv(orders, file_path)
     print(f"Generated {num_rows} rows at {file_path}")
-
-    print(f"Uploading to s3://{bucket}/{key}")
-    upload_to_s3(file_path, bucket, key)
-    print("Upload complete")

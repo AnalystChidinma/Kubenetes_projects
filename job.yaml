@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: s3-uploader-job
+  namespace: k8s-learning
+spec:
+  backoffLimit: 2
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: s3-uploader
+          image: analystchidinma/s3-uploader:v2
+          envFrom:
+            - configMapRef:
+                name: s3-uploader-config
+            - secretRef:
+                name: aws-credentials

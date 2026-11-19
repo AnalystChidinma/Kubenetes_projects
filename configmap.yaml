@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: s3-uploader-config
+  namespace: k8s-learning
+data:
+  BUCKET_NAME: chidinma-k8s-learning-522814708069-eu-west-3-an
+  AWS_DEFAULT_REGION: eu-west-3
+  NUM_ROWS: "100"
+  S3_PREFIX: orders
