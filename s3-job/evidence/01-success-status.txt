@@ -1,0 +1,5 @@
+NAME                        STATUS     COMPLETIONS   DURATION   AGE
+job.batch/s3-uploader-job   Complete   1/1           34s        3h47m
+
+NAME                        READY   STATUS      RESTARTS   AGE
+pod/s3-uploader-job-6rdvd   0/1     Completed   0          3h47m

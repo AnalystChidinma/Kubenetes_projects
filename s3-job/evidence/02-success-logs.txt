@@ -1,0 +1,3 @@
+Generated 100 rows
+Uploading to s3://chidinma-k8s-learning-522814708069-eu-west-3-an/orders/orders_20261119_055553.json
+Upload complete

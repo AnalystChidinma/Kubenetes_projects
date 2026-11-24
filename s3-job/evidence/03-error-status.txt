@@ -1,0 +1,7 @@
+NAME                        STATUS   COMPLETIONS   DURATION   AGE
+job.batch/s3-uploader-job   Failed   0/1           21m        21m
+
+NAME                        READY   STATUS   RESTARTS   AGE
+pod/s3-uploader-job-8m4nm   0/1     Error    0          20m
+pod/s3-uploader-job-fvw9c   0/1     Error    0          21m
+pod/s3-uploader-job-p87fs   0/1     Error    0          21m

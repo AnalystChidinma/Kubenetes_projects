@@ -16,3 +16,10 @@ spec:
                 name: s3-uploader-config
             - secretRef:
                 name: aws-credentials
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 500m
+              memory: 128Mi

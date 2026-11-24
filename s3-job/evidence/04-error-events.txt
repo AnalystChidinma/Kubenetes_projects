@@ -1,0 +1,40 @@
+Name:             s3-uploader-job
+Namespace:        k8s-learning
+Selector:         batch.kubernetes.io/controller-uid=58924990-b63d-4395-bf62-ccedfcfb0428
+Labels:           batch.kubernetes.io/controller-uid=58924990-b63d-4395-bf62-ccedfcfb0428
+                  batch.kubernetes.io/job-name=s3-uploader-job
+                  controller-uid=58924990-b63d-4395-bf62-ccedfcfb0428
+                  job-name=s3-uploader-job
+Annotations:      <none>
+Parallelism:      1
+Completions:      1
+Completion Mode:  NonIndexed
+Suspend:          false
+Backoff Limit:    2
+Start Time:       Thu, 19 Nov 2026 10:57:31 +0100
+Pods Statuses:    0 Active (0 Ready) / 0 Succeeded / 3 Failed
+Pod Template:
+  Labels:  batch.kubernetes.io/controller-uid=58924990-b63d-4395-bf62-ccedfcfb0428
+           batch.kubernetes.io/job-name=s3-uploader-job
+           controller-uid=58924990-b63d-4395-bf62-ccedfcfb0428
+           job-name=s3-uploader-job
+  Containers:
+   s3-uploader:
+    Image:      analystchidinma/s3-uploader:v2
+    Port:       <none>
+    Host Port:  <none>
+    Environment Variables from:
+      s3-uploader-config  ConfigMap  Optional: false
+      aws-credentials     Secret     Optional: false
+    Environment:          <none>
+    Mounts:               <none>
+  Volumes:                <none>
+  Node-Selectors:         <none>
+  Tolerations:            <none>
+Events:
+  Type     Reason                Age   From            Message
+  ----     ------                ----  ----            -------
+  Normal   SuccessfulCreate      63m   job-controller  Created pod: s3-uploader-job-p87fs
+  Normal   SuccessfulCreate      63m   job-controller  Created pod: s3-uploader-job-fvw9c
+  Normal   SuccessfulCreate      62m   job-controller  Created pod: s3-uploader-job-8m4nm
+  Warning  BackoffLimitExceeded  62m   job-controller  Job has reached the specified backoff limit
